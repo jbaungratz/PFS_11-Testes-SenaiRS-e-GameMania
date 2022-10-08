@@ -1,0 +1,42 @@
+package teste.gamemania;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteLogin {
+	
+	private WebDriver driver;
+	
+	@Before
+	public void ConfigurarTeste() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost:4200");
+		
+		//*[@id="menu"]/a[6]
+		
+		driver.findElement(By.xpath("//*[@id=\"menu\"]/a[6]")).click();
+	}
+	
+	@Test
+	public void TestarLogin( ) {
+		driver.findElement(By.xpath("//*[@id=\"inputEmail\"]")).sendKeys("vinicius.hotmail.com");
+		driver.findElement(By.xpath("//*[@id=\"inputPassword\"]")).sendKeys("senhaaleatoria");
+		driver.findElement(By.tagName("button")).click();
+		
+		
+		
+	}
+	
+	@After
+	public void EncerrarTeste( ) {
+		
+	}
+	
+}

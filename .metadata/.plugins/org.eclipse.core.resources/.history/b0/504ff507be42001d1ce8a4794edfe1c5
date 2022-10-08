@@ -1,0 +1,23 @@
+package teste.gamemania;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TesteLogin {
+	@Before
+	public void ConfigurarTeste() {
+		
+	}
+	
+	@Test
+	public void TestarLogin( ) {
+		
+	}
+	
+	@After
+	public void EncerrarTeste( ) {
+		
+	}
+	
+}

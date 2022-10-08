@@ -1,0 +1,51 @@
+package teste.Navegacao.Senai;
+
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+	public class testeCursosSenai {
+
+		private WebDriver driver;
+
+		@Before
+		public void ConfigurarTeste() {
+			System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
+			driver = new ChromeDriver();
+			driver.manage().window().maximize();
+		}
+		
+		@Test
+		public void TesteNavegabilidade () {
+			//driver.get("https://informatica.sp.senai.br");
+			driver.get("https://www.senairs.org.br/");
+			
+			// Selecionar campo de busca
+			
+			driver.findElement(By.xpath("//*[@id=\"block-tb-megamenu-menu-senai-main-menu-pt-br\"]/div/div/ul/li[7]/a")).click();
+			driver.findElement(By.tagName("input")).sendKeys("informatica" + Keys.chord(Keys.TAB));
+			driver.findElement(By.xpath("//*[@id=\"edit-categoria\"]")).click();
+			driver.findElement(By.xpath("//*[@id=\"edit-categoria\"]/option[4]")).sendKeys(Keys.TAB);
+			//driver.findElement(By.xpath("//*[@id=\"edit-submit-search\"]")).sendKeys(Keys.chord(Keys.TAB));
+			driver.findElement(By.tagName("button")).sendKeys(Keys.ENTER);
+			//driver.findElement(By.name("a")).sendKeys("a" + Keys.ENTER);
+			//driver.findElement(By.className("form-item form-item-titulo form-type-textfield form-group")).sendKeys("Excel");
+			//driver.findElement(By.id("edit-categoria")).sendKeys("Educação");
+			//driver.findElement(By.tagName("li")).click();
+			//driver.findElement(By.data-id("1978")).click();
+			//driver.findElement(By.cssSelector("#")).sendKeys("informatica");
+			//driver.findElement(By.id("Busca1_txtFiltro")).sendKeys(Keys.ENTER);
+			/*
+			driver.findElement(By.id("Busca1_txtFiltro")).sendKeys("tecnologia");
+			
+			driver.findElement(By.id("Busca1_btnBusca")).click();
+			*/
+		}
+	
+
+}

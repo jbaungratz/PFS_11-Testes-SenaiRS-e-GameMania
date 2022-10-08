@@ -1,0 +1,68 @@
+package teste.gamemania;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteLogin {
+	
+	private WebDriver driver;
+	
+	@Before
+	public void ConfigurarTeste() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.get("http://localhost:4200");
+		
+		//*[@id="menu"]/a[6]
+		
+		driver.findElement(By.xpath("//*[@id=\"menu\"]/a[6]")).click();
+	}
+	
+	@Test
+	public void TestarLogin( ) {
+		
+		WebElement campoEmail = driver.findElement(By.xpath("//*[@id=\"inputEmail\"]"));
+		WebElement campoSenha = driver.findElement(By.xpath("//*[@id=\"inputPassword\"]"));
+		WebElement botao = driver.findElement(By.tagName("button"));
+		
+		try {
+			
+			//caso de teste de Email Incorreto - OK com mensagem
+			campoEmail.sendKeys("vinicius.hotmail.com");
+			campoSenha.sendKeys("senhaaleatoria");
+			botao.click();
+					
+			
+			Thread.sleep(3000);
+			
+			campoEmail.clear();
+			campoSenha.clear();
+			
+			//Senha incorreta para Email cadastrado
+			
+			campoEmail.sendKeys("vinicius.hotmail.com");
+			campoSenha.sendKeys("senhaaleatoria");
+			botao.click();
+			
+			
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@After
+	public void EncerrarTeste( ) {
+		
+	}
+	
+}

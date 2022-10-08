@@ -1,0 +1,27 @@
+package teste.gamemania;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+public class TesteLogin {
+	
+	private WebDriver driver;
+	20/05 28min
+	@Before
+	public void ConfigurarTeste() {
+		
+	}
+	
+	@Test
+	public void TestarLogin( ) {
+		
+	}
+	
+	@After
+	public void EncerrarTeste( ) {
+		
+	}
+	
+}
